@@ -1,0 +1,40 @@
+Feature: Login
+
+Cenário: Realizar Login com os dados corretos
+
+Dado que o usuário tem um login criado e deseja realizar o login 
+Quando o usuário inserir seu email e senha na página de login
+Então o script deve validar as informações no banco de dados e realizar o login
+
+Cenário: Realizar login com os dados incorretos
+
+Dado que o usuário tem um login criado
+Quando o usuário inserir seu email e/ou senha de forma incorreta
+Então o script deve negar o acesso exibindo a seguinte mensagem "Usuário ou Senha incorretos"
+
+Cenário: Criar um login com senha fraca (Sem Nº, nem letras maiúsculas e minúsculas)
+
+Dado que o usuário está na página de criação de conta e deseja criar uma conta
+Quando ele inserir uma senha de baixa complexidade
+Então o script deve negar a criação e apresentar a mensagem "A senha deve conter no mínimo 8 caracteres, possuir uma letra maiscula e minúscula, pelo menos 1 símbolo e numero e não deve ser sequencial como 'abcd' ou '1234'
+
+
+Feature: Diário
+
+Cenário: Criar uma anotação no diário
+
+Dado que o usuário está na página 'Diário' e com o formulário aberto
+Quando o usuário terminar o registro e clicar no botão 'Salvar'
+Então o script deve incluir essas informações no banco de dados e salvar o registro na página do site como um item
+
+Cenário: Excluir uma anotação no diário
+
+Dado que o usuário tem um registro feito com sucesso no site e aberto
+Quando o usuário abrir o registro e clicar no botão 'Excluir' 
+Então o script deve apagar permanentemente os dados e remover o registro do site
+
+Cenário: Editar uma anotação no diário
+
+Dado que o usuário está na página 'Diário' e com um registro feito
+Quando o usuário clicar no botão 'Editar'
+Então o script deve abrir o formulário já existente no banco de dados.
